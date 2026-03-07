@@ -6,7 +6,7 @@
 # Website name (set in params.yaml under hugoblox.branding.name)
 title: ''
 # Website URL
-baseURL: 'https://example.com/'
+baseURL: 'sachkovskayasofia.github.io/site-project'
 
 ############################
 ## LANGUAGE
@@ -25,7 +25,7 @@ cascade:
   - _target:
       path: /slides/**
       kind: page
-    outputs: [HTML, present]
+    outputs: [HTML, present, CSS, RSS]
 
 ############################
 ## ADVANCED
