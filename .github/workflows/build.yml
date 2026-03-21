@@ -33,7 +33,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ env.NODE_VERSION }}
 
@@ -68,12 +68,20 @@ jobs:
           echo "HUGO_VERSION=$VERSION" >> $GITHUB_ENV
           echo "Using Hugo version: $VERSION"
 
-      - name: Install dependencies
+      - name: Install TailwindCSS
         run: |
-          # Install Tailwind CLI if package.json exists
+          # Install TailwindCSS globally (required by Hugo)
+          echo "Installing TailwindCSS globally..."
+          npm install -g tailwindcss
+          
+          # Verify installation
+          echo "TailwindCSS version:"
+          tailwindcss --version
+          
+          # Install other dependencies if package.json exists
           if [ -f "package.json" ]; then
-            echo "Installing Tailwind dependencies..."
-            pnpm install --no-frozen-lockfile || npm install
+            echo "Installing dependencies from package.json..."
+            npm install --no-frozen-lockfile || pnpm install --no-frozen-lockfile
           fi
 
       - name: Setup Hugo
@@ -115,8 +123,7 @@ jobs:
           if [ -f "package.json" ] && grep -q "pagefind" package.json; then
             pnpm run pagefind || npx pagefind --site "public"
           fi
-
-      - name: Upload artifact
+- name: Upload artifact
         id: upload
         uses: actions/upload-pages-artifact@v4
         with:
