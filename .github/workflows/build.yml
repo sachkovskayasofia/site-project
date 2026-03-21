@@ -70,7 +70,7 @@ jobs:
 
       - name: Install TailwindCSS
         run: |
-          # Install TailwindCSS globally (required by Hugo)
+          # Install TailwindCSS globally
           echo "Installing TailwindCSS globally..."
           npm install -g tailwindcss
           
@@ -123,7 +123,8 @@ jobs:
           if [ -f "package.json" ] && grep -q "pagefind" package.json; then
             pnpm run pagefind || npx pagefind --site "public"
           fi
-- name: Upload artifact
+
+      - name: Upload artifact
         id: upload
         uses: actions/upload-pages-artifact@v4
         with:
