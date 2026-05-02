@@ -18,6 +18,19 @@ links:
     label: E-mail Me
   - icon: brands/github
     url: https://github.com/sachkovskayasofia
+  - icon: brands/scholar
+    url: https://scholar.google.com/@sachkovskayasofia
+  - icon: brands/orcid
+    url: https://orcid.org/@sachkovskayasofia
+  - icon: brands/mendeley
+    url: https://www.mendeley.com/@sachkovskayasofia
+  - icon: brands/research
+    url: https://www.researchgate.net/@sachkovskayasofia
+  - icon: brands/academia
+    url: https://www.academia.edu/@sachkovskayasofia
+  - icon: brands/arxiv
+    url: https://www.arxiv.org/@sachkovskayasofia
+
 
 interests:
   - Large Language Models
